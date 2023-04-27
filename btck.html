@@ -59,7 +59,42 @@
         <img src="/img/img_bacsi.png" alt="">
         <div class="head">
             <div><a href="">Trang chủ</a></div>
-            <div style="margin-left: 50px;"> <a href="">Đặt lịch</a> </div>
+            <div style="margin-left: 50px;"> <a href="" data-toggle="modal" data-target="#myModal">Đặt lịch</a> </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Đặt lịch khám online</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p style="font-weight: bold;">Mã bệnh nhân</p>
+                            <input type="text" placeholder="Ma benh nhan" class="form-control">
+                            <p style="color: red;">(*)BN-YYYYYY</p>
+                            <p style="font-weight: bold;">Mật Khẩu</p>
+                            <input type="text" placeholder="Mat Khau" class="form-control" >
+                            <p style="color: red;">(*)</p>
+                            <p style="font-weight: bold;">Ngày Khám</p>
+                            <input type="date" placeholder="Mat Khau" class="form-control" >
+                            <p style="color: red;">(*)</p>
+                            <p style="font-weight: bold;">Loại dịch vụ</p>
+                            <label class="checkbox-inline" style="margin-left:20px;"><input type="checkbox">Khám bệnh theo yêu cầu</label>
+                            <label class="checkbox-inline"><input type="checkbox">Điều trị ngoại trú</label>
+                            <label class="checkbox-inline"><input type="checkbox">Bác sĩ theo yêu cầu</label>
+                            <p style="font-weight: bold;">Chuyên khoa</p>
+                            <select class="form-control">
+                                <option>Ngoại tổng quát</option>
+                            </select>
+                            <button type="button" class="btn btn-info" style="margin-top: 10px;">Đặt lịch</button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="content">
