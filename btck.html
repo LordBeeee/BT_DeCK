@@ -71,14 +71,12 @@
                         </div>
                         <div class="modal-body">
                             <p style="font-weight: bold;">Mã bệnh nhân</p>
-                            <input type="text" placeholder="Ma benh nhan" class="form-control">
-                            <p style="color: red;">(*)BN-YYYYYY</p>
+                            <input type="text" placeholder="Ma benh nhan" class="form-control" id="F1" name="F1" value="">
+                            <p style="color: red;"id="F1_error"></p>
                             <p style="font-weight: bold;">Mật Khẩu</p>
-                            <input type="text" placeholder="Mat Khau" class="form-control" >
-                            <p style="color: red;">(*)</p>
+                            <input type="text" placeholder="Mat Khau" class="form-control" id="F2" name="F2">
                             <p style="font-weight: bold;">Ngày Khám</p>
-                            <input type="date" placeholder="Mat Khau" class="form-control" >
-                            <p style="color: red;">(*)</p>
+                            <input type="date" placeholder="" class="form-control" id="F3" name="F3">
                             <p style="font-weight: bold;">Loại dịch vụ</p>
                             <label class="checkbox-inline" style="margin-left:20px;"><input type="checkbox">Khám bệnh theo yêu cầu</label>
                             <label class="checkbox-inline"><input type="checkbox">Điều trị ngoại trú</label>
@@ -87,10 +85,10 @@
                             <select class="form-control">
                                 <option>Ngoại tổng quát</option>
                             </select>
-                            <button type="button" class="btn btn-info" style="margin-top: 10px;">Đặt lịch</button>
+                            <button type="submit" class="btn btn-info" style="margin-top: 10px;" onclick="return kiemtraloi();">Đặt lịch</button>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
                         </div>
                     </div>
                 </div>
@@ -120,6 +118,39 @@
             <h1>21107091-Ngô Quốc Tuấn</h1>
         </div>
     </div>
+    <script>
+        var F1= document.getElementById.value.trim('F1');
+        var F2= document.getElementById.value.trim('F2');
+        var F3= document.getElementById('F3');
+        function hienloi(key ,mess ) {
+            document.getElementById(key + '_error').innerHTML = mess;
+        }
+        function kiemtraloi() {
+            var T=true;
+            var time = new Date();
 
+            var F1;
+            if(F1==' ' || F1 != 'BN-*****' || !/^[a-zA-Z0-9]+$/.test(F1)){
+                T=false;
+                hienloi(F1,'(*)BN-YYYYY');
+            }
+
+            var F2;
+            if(F2==' ' || F2.length <6){
+                T=false
+                hienloi(F1,'(*)');
+            }
+
+            var F3;
+            var d = time.getDate();
+            var m = time.getMonth() +1;
+            var y = time.getFullYear();
+            if(F3.getFullYear>y ||(F3.getFullYear<y && (F3.getMonth+1) > m) || (F3.getFullYear<y && (F3.getMonth+1) < m && F3.getDate > d)){
+                T=false
+                hienloi(F1,'(*)');
+            }
+            return T;
+        }
+    </script>
 </body>
 </html>
